@@ -1,0 +1,50 @@
+[user]
+type = 'entity'
+[[user.attributes]]
+name = 'name'
+type = 'text'
+[[user.attributes]]
+name = 'birthday'
+type = 'date'
+[[user.attributes]]
+name = 'avatar'
+type = 'text'
+[[user.attributes]]
+name = 'bio'
+type = 'text'
+
+[room]
+type = 'entity'
+[[room.attributes]]
+name = 'name'
+type = 'text'
+[[room.attributes]]
+name = 'description'
+type = 'text'
+[[room.attributes]]
+name = 'image'
+type = 'text'
+
+[message]
+type = 'entity'
+[[message.attributes]]
+name = 'body'
+type = 'text'
+
+[room_user]
+type = 'relationship'
+entities = ["user", "room"]
+cardinality = "M:N"
+[[room_user.attributes]]
+name = 'role'
+type = 'text'
+
+[message_user]
+type = 'relationship'
+entities = ['message', 'user']
+cardinality = "1:M"
+
+[message_room]
+type = 'relationship'
+entities = ['message', 'room']
+cardinality = "1:M"
